@@ -5,8 +5,8 @@ import Cart from './components/Cart';
 import { Button, Modal, Box, TextField, Typography, Toolbar, IconButton, Container } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import logo from './logo.png';  // Importando a logo
-import './App.css'; // Importando o arquivo CSS
+import logo from './logo.png';
+import './App.css';
 
 const car = {
   width: '100%',
