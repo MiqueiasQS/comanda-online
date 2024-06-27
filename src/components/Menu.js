@@ -1,10 +1,10 @@
 import React from 'react';
 import { Card, CardContent, CardActions, Button, Typography, Container, Grid } from '@mui/material';
-import StrogonoffImage from '../logo.png'; // Importe a imagem necessária
+import StrogonoffImage from '../logo.png';
 
 const menuItems = [
-    { id: 1, name: 'Strogonoff', price: 70, image: StrogonoffImage }, // Adicione a propriedade `image` ao objeto
-    { id: 2, name: 'Strogonoff de camarão', price: 115, image: StrogonoffImage }, // Exemplo com outra imagem
+    { id: 1, name: 'Strogonoff', price: 70, image: StrogonoffImage },
+    { id: 2, name: 'Canelone', price: 115, image: StrogonoffImage },
     { id: 3, name: 'Carbonara', price: 55, image: StrogonoffImage },
     { id: 4, name: 'Lasanha', price: 40, image: StrogonoffImage },
 ];
