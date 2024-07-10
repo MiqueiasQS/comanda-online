@@ -7,6 +7,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import logo from './logo.png';
 import './App.css';
+import Badge from '@mui/material/Badge';
 
 const car = {
   width: '100%',
@@ -63,7 +64,21 @@ function App() {
   }, []);
 
   const handleAddToCart = (item) => {
-    setCart([...cart, { ...item, quantity: 1 }]);
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((cartItem) => cartItem.id === item.id);
+      if (existingItem) {
+        return prevCart.map((cartItem) =>
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        );
+      }
+      return [...prevCart, { ...item, quantity: 1 }];
+    });
+  };
+
+  const getTotalItems = (cart) => {
+    return cart.reduce((total, item) => total + item.quantity, 0);
   };
 
   const handleRemoveFromCart = (index) => {
@@ -165,7 +180,9 @@ function App() {
             <HomeIcon />
           </IconButton>
           <IconButton color="inherit" onClick={handleOpen}>
-            <ShoppingCartIcon />
+            <Badge badgeContent={getTotalItems(cart)} color="secondary">
+              <ShoppingCartIcon />
+            </Badge>
           </IconButton>
         </Toolbar>
       </div>
